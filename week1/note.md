@@ -12,3 +12,10 @@
 With a simple set of primitives, one should be able to compute anything. Yet modern programming languages have more convenient set of primitives and also one can abstract methods to create new primitives(note that this is where a power of computational thinking comes in).
 
 Turing complete means equivalent in power to a universal tuning machine which says anything you can compute in one language can be compute in any other.
+
+## Exercise2
++ A fixed program computer is designed to compute precisely one computation
++ A stored program computer is designed to run any computation, by interpreting a sequence of instructions that are read into it
++ A program counter points the computer to the next instruction to execute in the program
++ Computer executes the instructions mostly in a linear sequence, except sometimes it jumps to a different place in the sequence
++ There are 6 primitives but with modern programming language, one can create primitives by abstracting methods 
