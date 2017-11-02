@@ -27,4 +27,14 @@ Turing complete means equivalent in power to a universal tuning machine which sa
 + static semantic: does this string has a meaning?
 + semantic: assigning a meaning to a legal statement
 
+**Type**
+There are different type of object(Data) and they are int, float, boolean and nonetype. While performing operations, when inputs are integers then result is always int. If either or both numbers are floats then result is always float.
+
 ### Exercise 5
+Int means integer (ex.3), float means floating number (ex.3.33) and boolean is either true or false. Lastly, python has a nonetype object which is ```none```.
+### Exercise 6 & Exercise 7
+The questions are of simple calculation.
+
+**Variables**
+By using assignment ```=``` one assign a value to a variable.
+By storing value as a variable, one can reuse it later without doing calculation
