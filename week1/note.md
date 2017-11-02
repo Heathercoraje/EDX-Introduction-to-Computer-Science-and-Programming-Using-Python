@@ -3,7 +3,7 @@
 ### Exercises 1
 + The difference of an algorithm and a program is that an algorithm is conceptual idea and a program is an concrete instantiation of algorithm
 + A computational mode of thinking means that everything can be viewed as a math problem involving numbers and formulas
-+ Compueter Science is not just about building efficient machines to run programs.
++ Computer Science is not just about building efficient machines to run programs.
 + Remembering results and performing calculation are two things that every computer can do   
 
 ### Exercise 2
@@ -19,7 +19,7 @@ Turing complete means equivalent in power to a universal tuning machine which sa
 + A fixed program computer is designed to compute precisely one computation
 + A stored program computer is designed to run any computation, by interpreting a sequence of instructions that are read into it
 + A program counter points the computer to the next instruction to execute in the program
-+ Computer executes the instructions mostly in a linear sequence, except sometimes it jumps to a different place in the sequence
++ Computer executes the instructions mostly in a linear sequence, except sometimes it jumps to a different place in the s equence
 + There are 6 primitives but with modern programming language, one can create primitives by abstracting methods
 
 ### Exercise 4
