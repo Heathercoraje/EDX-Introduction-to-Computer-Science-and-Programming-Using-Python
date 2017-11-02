@@ -19,7 +19,7 @@ Turing complete means equivalent in power to a universal tuning machine which sa
 + A fixed program computer is designed to compute precisely one computation
 + A stored program computer is designed to run any computation, by interpreting a sequence of instructions that are read into it
 + A program counter points the computer to the next instruction to execute in the program
-+ Computer executes the instructions mostly in a linear sequence, except sometimes it jumps to a different place in the s equence
++ Computer executes the instructions mostly in a linear sequence, except sometimes it jumps to a different place in the s sequence
 + There are 6 primitives but with modern programming language, one can create primitives by abstracting methods
 
 ### Exercise 4
