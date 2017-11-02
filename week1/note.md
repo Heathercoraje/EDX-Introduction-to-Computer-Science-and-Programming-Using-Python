@@ -38,3 +38,14 @@ The questions are of simple calculation.
 **Variables**
 By using assignment ```=``` one assign a value to a variable.
 By storing value as a variable, one can reuse it later without doing calculation
+
+### Exercise 8
++ False or True returns False
++ True and False returns False while True or False returns True
++ Not False returns True
+
+### Exercise 9
++ when assigning value to a variable, it uses one assigning sign.
+
+### Exercise 10
++ when int(float) it does not round the number.(int(2.6) = 2)
