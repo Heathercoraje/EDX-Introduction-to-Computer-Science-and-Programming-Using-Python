@@ -49,3 +49,10 @@ For iteration, one can use while or for loop. Also, inside loop, in order to bre
 ** Comparison between for loop and while loop **
 In case of for loops, we know number of iterations. It can end early using ```break```. Also it uses a counter. One can rewrite a for loop using while loop. On the other hand, in case of while loop, it executes unbounded number of iterations. It can use a counter but must initialize before loop and increment it inside the loop. Also one sometimes cannot rewrite a while loop using a for loop.
 In short, one tends to use for loop when knowing what we are going to do as computation and one tends to use while loop, when there is a condition that he cannot predict
+
+### Exercise 4, while, for loop
+
+### Exercise 5,6
+### Guess and check
+### Exercise 7
+moving on to problems 
