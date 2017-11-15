@@ -67,6 +67,41 @@ The code above prints out:
 #### Exercise 2
 As you make changes to the code, you need to think about the consequences. The case win the video was one where my test wasn't capturing all of the cases because the step was too big so that it skips the answer
 
-#### Exercise 3
+#### Exercise Guess my number
 With the idea of bisection search throwing away half of possible values at every stage, it takes way less guesses than before.
 bisection search really radically reduces computation time and it should work on any problem we would call an ordering property as in the value of function being solved varies monotonically, that is, it increases as the input value increases.
+
+```
+# by having done, we can break out of loop
+print('Please thnk of a number between 0 and 100!')
+high = 100
+low = 0
+done = False
+
+# loop until guess is correct
+while (not done):
+  guess = (high+low)//2
+  print("Is your secret number " + str(guess) + "?")
+  user_input = input("Enter 'h' to indicate the guess is too high. Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.")
+
+  if user_input == 'c':
+    done = True
+  elif user_inout == 'h':
+    high = guess
+  elif user_input == 'l':
+    low = guess
+  else:
+    print('Sorry, I did not understand your input.')
+
+print('Game over. Your secret number was: ' + str(guess))
+# while False: will escape the iteration
+```
+#### Exercise 4
+A set of simple true/false questions
++ It is false that internal computer representation of any number is always an approximation
++ 1011 is binary of decimal 11
++ It is true that the internal representation of the decimal number 1/10 = 0.1 requires an infinite number of digits
++ After many computation, you get two floating numbers stored in variables a and b. In comparing the numbers with a == b, it sometimes lead to a correct answer but not always.  
+
+
+In this lecture, we are introduced to three different classes of Algorithms and with these, we've got a lot of tools for doing numerical computation.
