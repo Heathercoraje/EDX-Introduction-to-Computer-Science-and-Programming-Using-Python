@@ -105,3 +105,36 @@ A set of simple true/false questions
 
 
 In this lecture, we are introduced to three different classes of Algorithms and with these, we've got a lot of tools for doing numerical computation.
+
+---
+## Functions
+It is important to have a good structure in code. Decomposition is an idea of breaking a bit chunk of code into pieces, a module that are self-contained, intended to be reusable, used to break up codes, keep code organized and coherent. For early weeks we learn how to do decomposition with functions and later after a few weeks, we will learn how to do decomposition with classes. Abstraction is an idea that one once I've built something, I don't need to know what is inside as long as it works. In other words, abstraction comes with a contract which says if you give me an appropriate answer, I am going to behave in an appropriate way.
+
+A function has def(keyword), name of function, parameters, docstring(usually explains what input should be and what output would be) and will remind the user when the function is invoked and lastly body.
+
+#### Exercise 1
+a set of simple questions to select a type of return of each function. For the last function, the piece of code does not have a return statement, therefore the type of return is ```NoneType```
+
+#### Exercise Square
+Write a Python function which takes in one number and returns the square of the number.
+```
+def square(x):
+  '''
+  x:int or float.
+  '''
+  return x*x
+```
+#### Exercise Eval quadratic
+```
+def evalQuadratic(a, b, c, x):
+  '''
+  a, b, c: numerical values for the coefficients of quadratic equation.
+  x: numerical value at which to evaluate the quadratic.
+  '''
+  return a*x*x + b*x + c
+
+```
+#### Calling functions
+#### Exercise 2
+#### Exercise 3
+#### Exercise 4
