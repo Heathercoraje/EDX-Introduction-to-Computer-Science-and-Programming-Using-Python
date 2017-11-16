@@ -135,6 +135,77 @@ def evalQuadratic(a, b, c, x):
 
 ```
 #### Calling functions
+Each function creates its own frame/scope/environment.
+For example in the case of code below, it gets an error of unboundlocavariable because inside the scope of h, x has not been assign to any value
+```
+def h(y):
+  x = x+1
+x = 5
+h(x)
+print(x)
+```
+
 #### Exercise 2
+
 #### Exercise 3
+
+**Keyword arguments and default values**
+
+There are variations in passing parameters. When giving arguments, one can set a parameter to be certain value by default. Without a specification, it is always true to the argument by default.
+
+```
+def toDo(work, desire, condition = False):
+  if (condition):
+    print('Your choice of today is to' + work)
+  elif (not condition):
+    print('Your choice of today is to' + desire)
+  else:
+    print('Your choice of today is to + work')
+  print('Have a good day, Heather!')
+
+```
+
+By leaving third argument empty, ```condition = False ``` becomes True
+
+```
+toDo('go and study at Camp','space out and do nothing')
+# Your choice of today is to space out and do nothing
+```
+
+By giving True to third argument, condition itself becomes True
+```
+toDo('go and study at Camp','space out and do nothing', True)
+# Your choice of today is to go and study at Camp
+```
 #### Exercise 4
+
+**Specification**
+
+It is recommended to write a docstring below a function one create so that a user of the function what to put as input and what to expect as output. Also it is helpful for future oneself to understand which thought she had when building the function before.
+
+#### Exercise 5
+#### Exercise 6
+Everything in Python is an *object.* In this exercise, you will be working with string objects and their built-in functions.  
+Difference between string method and find method is that
+```str.find ``` returns ``` -1 ``` when it does not find the substring while ```str.index``` raises ValueError.
+
+#### Forth power
+
+```
+def fourPower(x):
+  '''
+  x: int or float.
+  '''
+  return square(square(x))
+```
+
+#### Odd
+```
+def odd(x):
+  '''
+  x : int
+  return True if x is odd, False otherwise
+  '''
+
+  return (x % 2 == 1)
+```
