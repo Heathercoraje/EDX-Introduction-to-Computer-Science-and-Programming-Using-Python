@@ -138,7 +138,7 @@ def evalQuadratic(a, b, c, x):
 Each function creates its own frame/scope/environment.
 For example in the case of code below, it gets an error of unboundlocavariable because inside the scope of h, x has not been assign to any value
 ```
-def h(y):
+git def h(y):
   x = x+1
 x = 5
 h(x)
@@ -208,4 +208,19 @@ def odd(x):
   '''
 
   return (x % 2 == 1)
+```
+#### Power iter
+
+```
+  def iterPower(base, exp):
+    '''
+    base: int or float.
+    exp: int >= 0
+    returns: int or float, base^exp
+    '''
+    result = 1
+    while (exp>0):
+        result *= base
+        exp -= 1
+    return result
 ```
