@@ -11,7 +11,7 @@ count = 0
 while iteration < 5:
     # the variable 'letter' in the loop stands for every
     # character, including spaces and commas!
-    for letter in "hello, world":
+    for letter in "hello, word then multiplying the result by ld":
         count += 1
     print("Iteration " + str(iteration) + "; count is: " + str(count))
     iteration += 1
@@ -209,6 +209,8 @@ def odd(x):
 
   return (x % 2 == 1)
 ```
+### Iteration vs Recursion
+
 #### Power iter
 
 ```
