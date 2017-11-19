@@ -210,6 +210,18 @@ def odd(x):
   return (x % 2 == 1)
 ```
 ### Iteration vs Recursion
+The idea of a recursive function is to break it down into a small version of the same problem, plus some operations I want to do and figure out when can I stop breaking it down into smaller version of the same problem. The code below is an example of an recursive function.
+It might help to [read further on a recursive function] (https://pythonspot.com/en/recursion/) to fully understand its concept. A recursive function must call itself and has to have a terminate condition. By repetitively calling itself, it creates a new scope with a returned value, which not resolved yet pending, once the terminate condition is met, it returns to pending function to return value and continue returning pending functions until the end.
+
+
+```
+def multi(a,b):
+  if (b == 1):
+    return a
+    # because multiplying is basically adding b times of a
+  else:
+    return a + multi(a , b-1)
+```
 
 #### Power iter
 
@@ -224,5 +236,71 @@ def odd(x):
     while (exp>0):
         result *= base
         exp -= 1
-    return result
+    return result*
 ```
+
+#### Power recursive
+
+```
+def recurPower(base,exp):
+  if (exp <= 0):
+    return 1
+  else:
+    return base * recurPower(base, exp-1)
+```
+
+### Inductive reasoning
+How do we know a recursive code is going to work? In this case, we use a mathematical tool called mathematical induction. The idea of behind induction is that if I want to prove that statement is true for all values, then I just need to prove that statement is true when n has the smallest value.
+
+### Tower of Hanoi
+Recursion is a powerful tool and sometimes there are problems which cannot be solve otherwise if you don't think about it recursively, for example a classic problem called Towels of Hanoi. This is a problem that the professor suggests is really hard to solve iteratively but elegantly easy to solve recursively. The important thing to understand is the notion of breaking it down into a smaller version of the same problem, assume that can be solve, build your solution with that and other simple operations and then let the recursion unwind it until it gets to the solution you want.
+
+  ```
+  def printMove(fr, to):
+      print('move from' + str(fr) + ' to ' + str(to))
+
+  def Towers(n, fr, to, spare):
+      if n == 1:
+          printMove(fr, to)
+      else:
+          Towers(n-1, fr, spare, to)
+          Towers(1, fr, to, spare)
+          Towers(n-1, spare, to, fr)
+  ```
+
+#### Exercise: gcdIter and gcdRecur
+Write a program that return a greatest common divisor of two arguments a and b. function gcdIter should use iteration while gcdRecur should use recursive function calling itself to solve the problem
+
+```
+def gcdIter(a, b):
+    '''
+    a, b: positive integers
+
+    returns: a positive integer, the greatest common divisor of a & b.
+    '''
+
+    for i in range(min(a,b), 0, -1):
+        if (a % i == b % i == 0):
+            return i
+
+```
+
+```
+def gcdRecur(a, b):
+    '''
+    a, b: positive integers
+
+    returns: a positive integer, the greatest common divisor of a & b.
+    '''
+    if(b == 0):
+        return a
+    else:
+        return gcdRecur(b, a % b)
+
+```
+
+### Fibonacci
+### Recursion on non-numerics
+### Files
+#### Exercise: As in
+#### Exercise 7
