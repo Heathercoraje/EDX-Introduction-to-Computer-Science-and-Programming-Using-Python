@@ -300,7 +300,64 @@ def gcdRecur(a, b):
 ```
 
 ### Fibonacci
+Fibonacci is an example of having multiple base cases and calling two invocation of the function itself
+```
+def fib(x):
+  if(x == 0) or (x ==1):
+    return 1
+  else:
+    return fib(x-1) + fix(x-2)
+```
 ### Recursion on non-numerics
-### Files
+We can also use recursive function on string, for example palindrome, a string that read the same in backward.
+```
+def isPalindrome(s):
+    def toChars(s):
+        s = s.lower()
+        ans = ''
+        for c in s:
+            if c in 'abcdefghijklmnopqrstuvwxyz':
+                ans = ans + c
+        return ans
+
+  def isPal(s):
+      if len(s) <= 1:
+          return True
+      else:
+          return s[0] == s[-1] and isPal(s[1:-1])
+  return isPal(toChars(s))        
+```
+This is an elegant piece of code and is an example of what we call **divide and conquer algorithm.* I solve a hard problem by breaking it into a set of other sub-problems that have the property that they are easier to solve than the original and that solution of sub-problems get
+combined to solve the original-hard problem.  
+
 #### Exercise: As in
+```
+def isIn(char, aStr):
+    '''
+    char: a single character
+    aStr: an alphabetized string
+
+    returns: True if char is in aStr; False otherwise
+    '''
+    if aStr == '':
+        return False
+    if len(aStr) == 1:
+        return char == aStr
+
+    index = int(len(aStr)/2)    
+    if char == aStr[index]:
+        return True
+
+    else:
+        if char < aStr[index]:
+            return isIn(char, aStr[:index])
+            return False
+        else:
+            return isIn(char, aStr[index:])
+            return False
+
+```
+
+### Files
+
 #### Exercise 7
