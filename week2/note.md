@@ -359,5 +359,12 @@ def isIn(char, aStr):
 ```
 
 ### Files
+By saving functions in files, it gives modularity. I can import files and use a function or a collection of files. Also, I can create, write and read the files I am interacting with by command lines.
 
 #### Exercise 7
+By opening files and taking a look, one understands how to import modules from different file in the same folder.
+
+```
+from batteries import * # import all from file batteries
+from math import tan, pi  # import pi and tan from math library
+```
