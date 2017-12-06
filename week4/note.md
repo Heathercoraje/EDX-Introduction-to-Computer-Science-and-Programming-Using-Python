@@ -100,3 +100,18 @@ let the error messages guide what you are looking for in terms of bugs.
 **Logic errors** are harder. *think* before writing new codes and *draw* pictures of code, *explain* to a rubber ducky and walk through the codes. Make sure that you have a backup of current codes and experiment with a new version so that you can always recover it to the previous code.
 
 ## Exceptions and Assertion
+
+### Python built-in Exceptions
+### Handling exceptions
+By clarifying what to do when expected exception occurs, we can handle exceptions.
+
+### Control the flow
+By ```raise:```, we can control the flow of program.
+
+```
+try:
+exception:
+else:
+finally:
+
+```
