@@ -72,3 +72,6 @@ def hangman(secretWord):
     else: # IF DONE BECAUSE MISTAKE > 8
         print('Sorry, you ran out of guesses. The word was else. ')
     return
+
+# hangman('hello')
+# when invoking the function on terminal, uncomment line 76 
