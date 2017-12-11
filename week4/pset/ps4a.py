@@ -182,34 +182,25 @@ def isValidWord(word, hand, wordList):
     # create a function to check
     def isInHand(word, hand):
         """
-        Returns True if word is in currently updated hand
+        Returns True if word is in hand
         word: string
         hand: dictionary
-
         """
-        def isInHand(word, hand):
-    """
-    Returns True if word is in hand
-    word: string
-    hand: dictionary
-    """
-        # ('een', {'e': 1, 'n' : 2})
-    availList = []
-    for letter in hand.keys():
-        for j in range(hand[letter]:
-            availList.append(letter)
-    print(availableList) # [e, n, n]
+        availList = []
+        for letter in hand.keys():
+            for j in range(hand[letter]):
+                availList.append(letter)
+        print(availList) # [ e, v, v]
 
-    for i in word: # e e n
-        if (not i in availableList):
-            return False
-            break
-        else: # e
-            updateHand()
-            isInHand(word, newHand)
+        for i in word: # e
+            if (not i in availList):
+                return False
+                break
+            else: # e
+                availList.remove(i)
+                print(availList) # [v,v]
         return True
 
-isInHand('ai', {'a': 1, 'i' : 3})
 
     # use isInHand function to check if a given word is in hand
 
@@ -217,6 +208,8 @@ isInHand('ai', {'a': 1, 'i' : 3})
         return False
     if (word in wordList) and (isInHand(word, hand)): # wordList is a list
         return True
+    else:
+        return False
 
 # Problem #4: Playing a hand
 #
@@ -314,3 +307,4 @@ if __name__ == '__main__':
     playGame(wordList)
 
 ## Heather 1211 16:40
+## Heaher  1212 00:15
