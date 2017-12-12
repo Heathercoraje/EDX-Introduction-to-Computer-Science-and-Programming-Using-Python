@@ -273,8 +273,10 @@ def playHand(hand, wordList, n):
             print() # adding a new line
     if (not calculateHandlen(hand)): # if it is because there is no more char in hand
         print('Run out of letters. Total score: ', sum, 'points.')
+        print()
     else: # if it is because of input "."
         print('Goodbye! Total score: ', sum, 'points.')
+        print()
 
 
 #
@@ -293,8 +295,8 @@ def playGame(wordList):
 
     2) When done playing the hand, repeat from step 1
     """
-
-    while True: # repeat
+    done = False
+    while (not done): # repeat
         user_input = input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
         # if user input is n, offer a new game
 
@@ -309,6 +311,7 @@ def playGame(wordList):
             playHand(hand, wordList, HAND_SIZE)
 
         elif user_input == 'e':
+            done = True
             break
 
         else:
@@ -322,7 +325,7 @@ def playGame(wordList):
 #
 if __name__ == '__main__':
     wordList = loadWords()
-    #playGame(wordList)
+    playGame(wordList)
 
 ## Heather 1211 16:40
 ## Heaher  1212 00:15
@@ -330,4 +333,4 @@ if __name__ == '__main__':
 ## Heather 1212 18:58
 
 #playHand({'h': 1, 'i': 1}, wordList, 2)
-playGame(wordList)
+#playGame(wordList)
