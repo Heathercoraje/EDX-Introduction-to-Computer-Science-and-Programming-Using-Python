@@ -271,7 +271,7 @@ def playHand(hand, wordList, n):
                 # Update the hand
                 hand = updateHand(hand, word) # I am very. proud of you not giving on this
             print() # adding a new line
-    if (calculateHandlen): # if it is because there is no more char in hand
+    if (not calculateHandlen(hand)): # if it is because there is no more char in hand
         print('Run out of letters. Total score: ', sum, 'points.')
     else: # if it is because of input "."
         print('Goodbye! Total score: ', sum, 'points.')
@@ -293,8 +293,26 @@ def playGame(wordList):
 
     2) When done playing the hand, repeat from step 1
     """
-    # TO DO ... <-- Remove this comment when you code this function
-    print("playGame not yet implemented.") # <-- Remove this line when you code the function
+
+    while True: # repeat
+        user_input = input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
+        # if user input is n, offer a new game
+
+        if user_input == 'r':
+            try:
+                playHand(hand, wordList, HAND_SIZE)
+            except NameError:
+                print('You have not played a hand yet. Please play a new hand first!')
+
+        elif user_input == 'n':
+            hand = dealHand(HAND_SIZE)
+            playHand(hand, wordList, HAND_SIZE)
+
+        elif user_input == 'e':
+            break
+
+        else:
+            print('Invalid command.')
 
 
 
@@ -304,10 +322,12 @@ def playGame(wordList):
 #
 if __name__ == '__main__':
     wordList = loadWords()
-    playGame(wordList)
+    #playGame(wordList)
 
 ## Heather 1211 16:40
 ## Heaher  1212 00:15
 ## Heather 1212 15:51
-wordList = loadWords()
-playHand({'p':1, 'i':2,'h':1,}, wordList, 3)
+## Heather 1212 18:58
+
+#playHand({'h': 1, 'i': 1}, wordList, 2)
+playGame(wordList)
