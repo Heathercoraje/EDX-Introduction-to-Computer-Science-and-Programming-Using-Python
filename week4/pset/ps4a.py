@@ -221,8 +221,10 @@ def calculateHandlen(hand):
     hand: dictionary (string-> int)
     returns: integer
     """
-    # TO DO... <-- Remove this comment when you code this function
-
+    count = 0
+    for letter in hand.keys():
+        count += hand[letter]
+    return count
 
 
 def playHand(hand, wordList, n):
@@ -308,3 +310,5 @@ if __name__ == '__main__':
 
 ## Heather 1211 16:40
 ## Heaher  1212 00:15
+## Heather 1212 15:51
+## calculateHandlen({'a': 0, 'b':2, 't':2})
