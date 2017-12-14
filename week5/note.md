@@ -5,3 +5,5 @@
 ## why OOP?
 getter and setter
 ## Hierarchies
+## Adding another class and using inherited methods
+functional programming vs. object oriented programming
