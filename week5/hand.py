@@ -85,7 +85,7 @@ class Hand(object):
         # Your code here
         raise NotImplementedError()
 
-# 
+#
 # myHand = Hand(7)
 # print(myHand)
 # print(myHand.calculateLen())
