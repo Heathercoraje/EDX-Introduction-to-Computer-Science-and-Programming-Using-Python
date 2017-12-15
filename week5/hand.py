@@ -82,17 +82,48 @@ class Hand(object):
         word: string
         returns: Boolean (if the word was or was not made)
         """
-        # Your code here
+        # my solution
+        # def isIn(self, word):
+        #     for e in word:
+        #         if not e in self.hand:
+        #             return False
+        #             break
+        #             return True
+        #
+        # if (isIn(self, word)): # if all the word in hand
+        #     for e in word:
+        #         self.hand[e] = self.hand.get(e) -1
+        # else:
+        #     return False
+        #
+        # return True
+        # another solution
+        # better solution covering bothe cases
+        # there is no key, there is - value for key (no letter available)
+        newHand = self.hand.copy()
+
+        for letter in word:
+            try:
+                newHand[letter] -= 1
+            except KeyError:
+                return False
+        for letter in newHand.keys():
+            if newHand[letter] < 0:# if the value of key in hand dict is smaller than 0
+                return False
+            self.hand = newHand
+            return True
+
+
         raise NotImplementedError()
 
 #
-# myHand = Hand(7)
-# print(myHand)
-# print(myHand.calculateLen())
-# print(myHand.hand)
+myHand = Hand(7)
+print(myHand)
+print(myHand.calculateLen())
+print(myHand.hand)
 # myHand.setDummyHand('aassmmp')
 # print(myHand)
-# print(myHand.calculateLen())
-
-# myHand.update('za')
+# # print(myHand.calculateLen())
+#
+# print(myHand.update('za'))
 # print(myHand)
