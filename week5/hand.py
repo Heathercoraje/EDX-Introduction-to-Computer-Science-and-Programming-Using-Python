@@ -51,7 +51,7 @@ class Hand(object):
 
     def calculateLen(self):
         '''
-        Calculate the length of the hand.
+            culate the length of the hand.
         '''
         ans = 0
         for k in self.hand:
