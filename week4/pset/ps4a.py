@@ -160,8 +160,8 @@ def updateHand(hand, word):
     newHand = hand.copy() #newHand = {'a':2, 'b':1 }
 
     for i in word: # a , b
-        newHand[i] = newHand.get(i)-1  # - or  -=  # newHand['a'] now has a new value = {'a': 2 - 1} = {'a:' : 1}
-    return newHand
+        newHand[i] = newHand.get(i)-1  # - or  -=  # newHand['a'] now has a new value = {'a': 2 - 1} = {'a' : 1}
+    return newHand # {'a':1, 'b':0}
 
 
 # Problem #3: Test word validity
