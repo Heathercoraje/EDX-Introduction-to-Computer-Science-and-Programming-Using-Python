@@ -111,12 +111,8 @@ class Message(object):
             else: # if uppercase
                 self.dict[char[i]] = char[26:][(i + shift) % 26 ]
 
-        result = ""
-        for e in self.get_message_text():
-            if e in self.dict:
-                e = self.dict[e]
-            result += e
-        return result
+        return self.dict
+
 
     def apply_shift(self, shift):
         '''
@@ -130,7 +126,14 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        pass #delete this line and replace with your code here
+        text = ""
+        for e in self.get_message_text():
+            if e in self.build_shift_dict(shift):
+                e = self.dict[e]
+            text += e
+        return text
+
+
 
 class PlaintextMessage(Message):
     def __init__(self, text, shift):
@@ -222,7 +225,7 @@ class CiphertextMessage(Message):
         pass #delete this line and replace with your code here
 
 test = Message('aBCde!!')
-print(test.build_shift_dict(2))
+print(test.apply_shift(2))
 #Example test case (PlaintextMessage)
 # plaintext = PlaintextMessage('hello', 2)
 # print('Expected Output: jgnnq')
