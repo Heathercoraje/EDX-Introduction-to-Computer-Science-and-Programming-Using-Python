@@ -214,16 +214,20 @@ class CiphertextMessage(Message):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         '''
-        pass #delete this line and replace with your code here
+        self.message_text = text
+        self.valid_words = load_words(WORDLIST_FILENAME)
+        # print(self.message_text)
+        # print(self.valid_words)
 
     def decrypt_message(self):
         '''
-        Decrypt self.message_text by trying every possible shift value
-        and find the "best" one. We will define "best" as the shift that
-        creates the maximum number of real words when we use apply_shift(shift)
-        on the message text. If s is the original shift value used to encrypt
-        the message, then we would expect 26 - s to be the best shift value
-        for decrypting it.
+        Decrypt self.message_text by trying every possible shift value and find the "best" one.
+
+        We will define "best" as the shift that
+        creates the maximum number of real words when we use apply_shift(shift) on the message text.
+
+        If s is the original shift value used to encrypt
+        the message, then we would expect 26 - s to be the best shift value for decrypting it.
 
         Note: if multiple shifts are  equally good such that they all create
         the maximum number of you may choose any of those shifts (and their
@@ -232,19 +236,27 @@ class CiphertextMessage(Message):
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
         '''
-        pass #delete this line and replace with your code here
-#
+        # i feel like ..
+        # there could be cases where more words can be made by using different shift
+        s = 0
+        while (not self.apply_shift(26 - s) in self.valid_words):
+            print(self.apply_shift(26-s))
+            s += 1
+        return (26-s, self.apply_shift(26 - s))
+
+
 # test = Message('aBCde!!')
 # print(test.apply_shift(2))
 #Example test case (PlaintextMessage)
-plaintext = PlaintextMessage('abc', 2)
-print('Expected Output: cde')
-print('Actual Output:', plaintext.get_message_text_encrypted())
-plaintext.change_shift(1)
-print('Expected Output: bcd')
-print('Actual Output:', plaintext.get_message_text_encrypted())
+# plaintext = PlaintextMessage('abc', 2)
+# print('Expected Output: cde')
+# print('Actual Output:', plaintext.get_message_text_encrypted())
+# plaintext.change_shift(1)
+# print('Expected Output: bcd')
+# print('Actual Output:', plaintext.get_message_text_encrypted())
 
 # #Example test case (CiphertextMessage)
-# ciphertext = CiphertextMessage('jgnnq')
-# print('Expected Output:', (24, 'hello'))
-# print('Actual Output:', ciphertext.decrypt_message())
+ciphertext = CiphertextMessage('jgnnq')
+print(ciphertext.message_text)
+print('Expected Output:', (24, 'hello'))
+print('Actual Output:', ciphertext.decrypt_message())
