@@ -240,15 +240,18 @@ class CiphertextMessage(Message):
         '''
         done = False
         s = 0
+
         while (not done):
             print('in progress')
             list = self.message_text.split(" ")
             for word in list:
                 print(s)
-                print(word)
                 if (not is_word(self.valid_words, word)):
                 # any word is not valid in the list
                     s += 1
+                    list = self.apply_shift(s).split(" ")
+                    print(list)
+
                 else:
                     print(26-s,'this is it')
                     done = True
