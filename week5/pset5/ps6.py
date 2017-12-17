@@ -238,25 +238,35 @@ class CiphertextMessage(Message):
         You may find the helper function is_word(wordlist, word) and the string method split() useful. Note that is_word will ignore punctuation and other special characters when considering whether a word is valid.
 
         '''
-        # i feel like ..
-        # there could be cases where more words can be made by using different shift
-
-
-        while (is_word(self.valid_words, self.apply_shift(26-s))):
-            s += 1
-            print(s)
-            print(26-s)
-            self.message_text = self.apply_shift(26-s)
-
+        done = False
+        s = 0
+        while (not done):
+            print('in progress')
+            list = self.message_text.split(" ")
+            for word in list:
+                print(s)
+                print(word)
+                if (not is_word(self.valid_words, word)):
+                # any word is not valid in the list
+                    s += 1
+                else:
+                    print(26-s,'this is it')
+                    done = True
+        return s
+        #     s += 1
+        #     print(s)
+        #     print(26-s)
+        #     print(self.apply_shift(26-s))
+        # return (26 - s, self.apply_shift(26-s))
         # if this is false, it means a given text is not a word an it needs another shift change
 
-
-        self.apply_shift(26 - s) in self.valid_words):
-            print(self.apply_shift(26-s))
-            s += 1
-        return (26-s, self.apply_shift(26 - s))
-        return is_word(self.valid_words, self.message_text)
-
+        #
+        # self.apply_shift(26 - s) in self.valid_words):
+        #     print(self.apply_shift(26-s))
+        #     s += 1
+        # return (26-s, self.apply_shift(26 - s))
+        # return is_word(self.valid_words, self.message_text)
+        #
 
 # test = Message('aBCde!!')
 # print(test.apply_shift(2))
@@ -269,7 +279,7 @@ class CiphertextMessage(Message):
 # print('Actual Output:', plaintext.get_message_text_encrypted())
 
 # #Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('jgnnq')
+ciphertext = CiphertextMessage('dhkmjqz xjilpzno mzyyzi avxo rdaz zvmi yzovdg ocdif xgjocz kvnnvbz zqzmtjiz rjjgzi wzndyz xjno adibzm ngjr ajmzno mzxjhhziy npaazm jkzmvodji dhdovoz nzqzmz cjggjr voomvxodqz xjhkzoz vgocjpbc mpyz izxznnvmt piyzm ncjpgy wmdwzmt hpndx zaazxo gziboc yznompxodji')
 print(ciphertext.message_text)
-print('Expected Output:', (24, 'hello'))
+print('Expected Output:', (24, 'improve conquest redden fact wife earn detail think clothe passage everyone woolen beside cost finger slow forest recommend suffer operation imitate severe hollow attractive compete although rude necessary under should bribery music effect length destruction'))
 print('Actual Output:', ciphertext.decrypt_message())
