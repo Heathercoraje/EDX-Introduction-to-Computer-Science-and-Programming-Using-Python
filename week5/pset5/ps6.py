@@ -240,36 +240,23 @@ class CiphertextMessage(Message):
         '''
         done = False
         s = 0
-
         while (not done):
+            print(done)
+            print('shift value: ', s)
             print('in progress')
-            list = self.message_text.split(" ")
+            # make list of words then check
+            list = self.apply_shift(s).split(" ") #
+            print(list[:2]) # this must change each time
             for word in list:
-                print(s)
                 if (not is_word(self.valid_words, word)):
-                # any word is not valid in the list
+                # if give word is not valid word
                     s += 1
-                    list = self.apply_shift(s).split(" ")
-                    print(list)
-
-                else:
-                    print(26-s,'this is it')
+                    break
+                    # self.message_text = self.apply_shift(s)
+                else:# if all the word is valid word
                     done = True
-        return s
-        #     s += 1
-        #     print(s)
-        #     print(26-s)
-        #     print(self.apply_shift(26-s))
-        # return (26 - s, self.apply_shift(26-s))
-        # if this is false, it means a given text is not a word an it needs another shift change
-
-        #
-        # self.apply_shift(26 - s) in self.valid_words):
-        #     print(self.apply_shift(26-s))
-        #     s += 1
-        # return (26-s, self.apply_shift(26 - s))
-        # return is_word(self.valid_words, self.message_text)
-        #
+                    return self.apply_shift(s)
+        #return self.apply_shift(s)
 
 # test = Message('aBCde!!')
 # print(test.apply_shift(2))
