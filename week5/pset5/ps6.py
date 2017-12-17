@@ -96,6 +96,8 @@ class Message(object):
         should have 52 keys of all the uppercase letters and all the lowercase
         letters only.
 
+        You may find the helper function is_word(wordlist, word) and the string method split() useful. Note that is_word will ignore punctuation and other special characters when considering whether a word is valid.
+
         shift (integer): the amount by which to shift every letter of the
         alphabet. 0 <= shift < 26
 
@@ -233,16 +235,27 @@ class CiphertextMessage(Message):
         the maximum number of you may choose any of those shifts (and their
         corresponding decrypted messages) to return
 
-        Returns: a tuple of the best shift value used to decrypt the message
-        and the decrypted message text using that shift value
+        You may find the helper function is_word(wordlist, word) and the string method split() useful. Note that is_word will ignore punctuation and other special characters when considering whether a word is valid.
+
         '''
         # i feel like ..
         # there could be cases where more words can be made by using different shift
-        s = 0
-        while (not self.apply_shift(26 - s) in self.valid_words):
+
+
+        while (is_word(self.valid_words, self.apply_shift(26-s))):
+            s += 1
+            print(s)
+            print(26-s)
+            self.message_text = self.apply_shift(26-s)
+
+        # if this is false, it means a given text is not a word an it needs another shift change
+
+
+        self.apply_shift(26 - s) in self.valid_words):
             print(self.apply_shift(26-s))
             s += 1
         return (26-s, self.apply_shift(26 - s))
+        return is_word(self.valid_words, self.message_text)
 
 
 # test = Message('aBCde!!')
