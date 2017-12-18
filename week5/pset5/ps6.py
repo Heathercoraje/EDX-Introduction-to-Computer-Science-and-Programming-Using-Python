@@ -28,7 +28,7 @@ def is_word(word_list, word):
     Determines if word is a valid word, ignoring
     capitalization and punctuation
 
-    word_list (list): list of words in the dictionary.
+    word_list (list): of words in the dictionary.
     word (string): a possible word.
 
     Returns: True if word is in word_list, False otherwise
@@ -238,25 +238,32 @@ class CiphertextMessage(Message):
         You may find the helper function is_word(wordlist, word) and the string method split() useful. Note that is_word will ignore punctuation and other special characters when considering whether a word is valid.
 
         '''
-        done = False
         s = 0
-        while (not done):
-            print(done)
-            print('shift value: ', s)
-            print('in progress')
+        # variable to store a best
+        # count valid words if it is higher then store
+        # no while loop, if you can't do for loop
+        # while loop is prone to
+
+        # only one valid word and with invalid words
+        s = 0
+        list = self.apply_shift(s).split(" ")
+        while (s < 26 ): # from 0 to 25
             # make list of words then check
-            list = self.apply_shift(s).split(" ") #
-            print(list[:2]) # this must change each time
+            list = self.apply_shift(s).split(" ")
             for word in list:
                 if (not is_word(self.valid_words, word)):
-                # if give word is not valid word
-                    s += 1
+                    valid = False
                     break
-                    # self.message_text = self.apply_shift(s)
-                else:# if all the word is valid word
-                    done = True
-                    return self.apply_shift(s)
-        #return self.apply_shift(s)
+                else:
+                    print('valid')
+                    valid = True
+            if (valid):
+                break
+            s += 1 # get out of for loop then increment
+        return (s, self.apply_shift(s))
+
+
+        # wtf?
 
 # test = Message('aBCde!!')
 # print(test.apply_shift(2))
@@ -269,7 +276,7 @@ class CiphertextMessage(Message):
 # print('Actual Output:', plaintext.get_message_text_encrypted())
 
 # #Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('dhkmjqz xjilpzno mzyyzi avxo rdaz zvmi yzovdg ocdif xgjocz kvnnvbz zqzmtjiz rjjgzi wzndyz xjno adibzm ngjr ajmzno mzxjhhziy npaazm jkzmvodji dhdovoz nzqzmz cjggjr voomvxodqz xjhkzoz vgocjpbc mpyz izxznnvmt piyzm ncjpgy wmdwzmt hpndx zaazxo gziboc yznompxodji')
+ciphertext = CiphertextMessage('Xyxcoxco gybnc: gszo byikvdi nsckzzokb mywzodsdyb cdkbd vswl cywogrobo zbywsco cdkxnkbn ohmovvoxmo byeqr cdoov drbyg vkxnvybn csd')
 print(ciphertext.message_text)
-print('Expected Output:', (24, 'improve conquest redden fact wife earn detail think clothe passage everyone woolen beside cost finger slow forest recommend suffer operation imitate severe hollow attractive compete although rude necessary under should bribery music effect length destruction'))
+print('Expected Output:', ('Nonsense words: wipe royalty disappear competitor start limb somewhere promise standard excellence rough steel throw landlord sit'))
 print('Actual Output:', ciphertext.decrypt_message())
