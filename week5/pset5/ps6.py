@@ -238,7 +238,10 @@ class CiphertextMessage(Message):
         You may find the helper function is_word(wordlist, word) and the string method split() useful. Note that is_word will ignore punctuation and other special characters when considering whether a word is valid.
 
         '''
-            # inadequate solution that only covers a limited number of cases
+        # inadequate solution that only covers a limited number of cases
+        # no while loop, if you can't do for loop
+        # while loop is prone to break
+
         # s = 0
         # list = self.apply_shift(s).split(" ")
         # while (s < 26 ): # from 0 to 25
@@ -256,10 +259,10 @@ class CiphertextMessage(Message):
         #     s += 1 # get out of for loop then increment
         # return (s, self.apply_shift(s))
 
-        # variable to store a best
+        # variable to store a best shift
         # count valid words if it is higher then store
-        # no while loop, if you can't do for loop
-        # while loop is prone to
+
+
         current = 0
         bestShift = 0
         for i in range (26): # iterate from 0 to 25
@@ -274,9 +277,7 @@ class CiphertextMessage(Message):
                 bestShift = i
         return(bestShift, self.apply_shift(bestShift))
 
-            # if (best < nWords):
-            #     best = nWords
-            #
+
 
 
 
