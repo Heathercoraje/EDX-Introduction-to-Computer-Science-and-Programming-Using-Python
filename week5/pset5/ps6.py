@@ -238,32 +238,48 @@ class CiphertextMessage(Message):
         You may find the helper function is_word(wordlist, word) and the string method split() useful. Note that is_word will ignore punctuation and other special characters when considering whether a word is valid.
 
         '''
-        s = 0
+            # inadequate solution that only covers a limited number of cases
+        # s = 0
+        # list = self.apply_shift(s).split(" ")
+        # while (s < 26 ): # from 0 to 25
+        #     # make list of words then check
+        #     list = self.apply_shift(s).split(" ")
+        #     for word in list:
+        #         if (not is_word(self.valid_words, word)):
+        #             valid = False
+        #             break
+        #         else:
+        #             print('valid')
+        #             valid = True
+        #     if (valid):
+        #         break
+        #     s += 1 # get out of for loop then increment
+        # return (s, self.apply_shift(s))
+
         # variable to store a best
         # count valid words if it is higher then store
         # no while loop, if you can't do for loop
         # while loop is prone to
+        current = 0
+        bestShift = 0
+        for i in range (26): # iterate from 0 to 25
+            textList = self.apply_shift(i).split(" ")
+            result = []
+            for word in textList:
+                if (is_word(self.valid_words, word)):# if current word is valid
+                    result.append(word)
+            # print(i, result) this will show (shift, valid words)
+            if (current < len(result)):
+                current = len(result)
+                bestShift = i
+        return(bestShift, self.apply_shift(bestShift))
 
-        # only one valid word and with invalid words
-        s = 0
-        list = self.apply_shift(s).split(" ")
-        while (s < 26 ): # from 0 to 25
-            # make list of words then check
-            list = self.apply_shift(s).split(" ")
-            for word in list:
-                if (not is_word(self.valid_words, word)):
-                    valid = False
-                    break
-                else:
-                    print('valid')
-                    valid = True
-            if (valid):
-                break
-            s += 1 # get out of for loop then increment
-        return (s, self.apply_shift(s))
+            # if (best < nWords):
+            #     best = nWords
+            #
 
 
-        # wtf?
+
 
 # test = Message('aBCde!!')
 # print(test.apply_shift(2))
