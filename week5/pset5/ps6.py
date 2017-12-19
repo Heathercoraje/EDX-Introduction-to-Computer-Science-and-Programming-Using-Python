@@ -301,9 +301,22 @@ class CiphertextMessage(Message):
 # plaintext.change_shift(1)
 # print('Expected Output: bcd')
 # print('Actual Output:', plaintext.get_message_text_encrypted())
+#
+# # #Example test case (CiphertextMessage)
+# ciphertext = CiphertextMessage('Xyxcoxco gybnc: gszo byikvdi nsckzzokb mywzodsdyb cdkbd vswl cywogrobo zbywsco cdkxnkbn ohmovvoxmo byeqr cdoov drbyg vkxnvybn csd')
+# print(ciphertext.message_text)
+# print('Expected Output:', ('Nonsense words: wipe royalty disappear competitor start limb somewhere promise standard excellence rough steel throw landlord sit'))
+# print('Actual Output:', ciphertext.decrypt_message())
 
-# #Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('Xyxcoxco gybnc: gszo byikvdi nsckzzokb mywzodsdyb cdkbd vswl cywogrobo zbywsco cdkxnkbn ohmovvoxmo byeqr cdoov drbyg vkxnvybn csd')
-print(ciphertext.message_text)
-print('Expected Output:', ('Nonsense words: wipe royalty disappear competitor start limb somewhere promise standard excellence rough steel throw landlord sit'))
-print('Actual Output:', ciphertext.decrypt_message())
+def decrypt_story():
+    '''
+    graders will use our implementation of the Message, PlaintextMessage, and CiphertextMessage classes, so don't worry if you did not get the previous parts correct.
+
+    Now that you have all the pieces to the puzzle, please use them to decode the file story.txt. The file ps6.py contains a helper function get_story_string() that returns the encrypted version of the story as a string. Create a CiphertextMessage object using the story string and use decrypt_message to return the appropriate shift value and unencrypted story string.
+
+    '''
+    encrytMessage = CiphertextMessage(get_story_string())
+    # encrytMessage.message_text
+    return encrytMessage.decrypt_message()
+
+print(decrypt_story())
