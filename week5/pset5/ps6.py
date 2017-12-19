@@ -263,21 +263,31 @@ class CiphertextMessage(Message):
         # count valid words if it is higher then store
 
 
-        current = 0
-        bestShift = 0
+        current = (0, 0) # words, index
         for i in range (26): # iterate from 0 to 25
             textList = self.apply_shift(i).split(" ")
-            result = []
-            for word in textList:
-                if (is_word(self.valid_words, word)):# if current word is valid
-                    result.append(word)
-            # print(i, result) this will show (shift, valid words)
-            if (current < len(result)):
-                current = len(result)
-                bestShift = i
-        return(bestShift, self.apply_shift(bestShift))
+            nWords = len(list(filter(lambda word:is_word(self.valid_words, word), textList)))
+            if (nWords > current[0]): # if this shift is more effective
+                current = (nWords, i)
+            if (nWords == len(textList)):
+                break
+        return(current[1], self.apply_shift(current[1]))
 
+        #return(bestShift, self.apply_shift(bestShift))
 
+        # arr = self.apply_shift(2).split(" ")
+        # # string applying shift 2 into list
+        # top = len(arr) # number of words in list
+        # current = (0, 0) # words, index
+        # for i in range(26): # from 0 to 25
+        #     # make list of words then check
+        #     arr = self.apply_shift(i).split(" ")
+        #     found = len(list(filter(lambda word: is_word(self.valid_words, word), arr)))
+        #     if (found > current[0]):
+        #         current = (found, i)
+        #     if (found == top):
+        #         break
+        # return (i, self.apply_shift(current[1]))
 
 
 
@@ -291,9 +301,22 @@ class CiphertextMessage(Message):
 # plaintext.change_shift(1)
 # print('Expected Output: bcd')
 # print('Actual Output:', plaintext.get_message_text_encrypted())
+#
+# # #Example test case (CiphertextMessage)
+# ciphertext = CiphertextMessage('Xyxcoxco gybnc: gszo byikvdi nsckzzokb mywzodsdyb cdkbd vswl cywogrobo zbywsco cdkxnkbn ohmovvoxmo byeqr cdoov drbyg vkxnvybn csd')
+# print(ciphertext.message_text)
+# print('Expected Output:', ('Nonsense words: wipe royalty disappear competitor start limb somewhere promise standard excellence rough steel throw landlord sit'))
+# print('Actual Output:', ciphertext.decrypt_message())
 
-# #Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('Xyxcoxco gybnc: gszo byikvdi nsckzzokb mywzodsdyb cdkbd vswl cywogrobo zbywsco cdkxnkbn ohmovvoxmo byeqr cdoov drbyg vkxnvybn csd')
-print(ciphertext.message_text)
-print('Expected Output:', ('Nonsense words: wipe royalty disappear competitor start limb somewhere promise standard excellence rough steel throw landlord sit'))
-print('Actual Output:', ciphertext.decrypt_message())
+def decrypt_story():
+    '''
+    graders will use our implementation of the Message, PlaintextMessage, and CiphertextMessage classes, so don't worry if you did not get the previous parts correct.
+
+    Now that you have all the pieces to the puzzle, please use them to decode the file story.txt. The file ps6.py contains a helper function get_story_string() that returns the encrypted version of the story as a string. Create a CiphertextMessage object using the story string and use decrypt_message to return the appropriate shift value and unencrypted story string.
+
+    '''
+    encrytMessage = CiphertextMessage(get_story_string())
+    # encrytMessage.message_text
+    return encrytMessage.decrypt_message()
+
+print(decrypt_story())
