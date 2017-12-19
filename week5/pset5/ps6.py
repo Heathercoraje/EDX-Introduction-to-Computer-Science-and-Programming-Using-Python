@@ -263,21 +263,31 @@ class CiphertextMessage(Message):
         # count valid words if it is higher then store
 
 
-        current = 0
-        bestShift = 0
+        current = (0, 0) # words, index
         for i in range (26): # iterate from 0 to 25
             textList = self.apply_shift(i).split(" ")
-            result = []
-            for word in textList:
-                if (is_word(self.valid_words, word)):# if current word is valid
-                    result.append(word)
-            # print(i, result) this will show (shift, valid words)
-            if (current < len(result)):
-                current = len(result)
-                bestShift = i
-        return(bestShift, self.apply_shift(bestShift))
+            nWords = len(list(filter(lambda word:is_word(self.valid_words, word), textList)))
+            if (nWords > current[0]): # if this shift is more effective
+                current = (nWords, i)
+            if (nWords == len(textList)):
+                break
+        return(current[1], self.apply_shift(current[1]))
 
+        #return(bestShift, self.apply_shift(bestShift))
 
+        # arr = self.apply_shift(2).split(" ")
+        # # string applying shift 2 into list
+        # top = len(arr) # number of words in list
+        # current = (0, 0) # words, index
+        # for i in range(26): # from 0 to 25
+        #     # make list of words then check
+        #     arr = self.apply_shift(i).split(" ")
+        #     found = len(list(filter(lambda word: is_word(self.valid_words, word), arr)))
+        #     if (found > current[0]):
+        #         current = (found, i)
+        #     if (found == top):
+        #         break
+        # return (i, self.apply_shift(current[1]))
 
 
 
