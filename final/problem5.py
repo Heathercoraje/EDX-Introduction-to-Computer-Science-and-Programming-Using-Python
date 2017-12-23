@@ -17,3 +17,5 @@ def uniqueValues(aDict):
                     break # move on to next value to find key
         result.sort()
         return result
+        
+# 19.09 out of 20, I am not covering all cases
