@@ -1,10 +1,10 @@
-# Week4: Good programming practice
+# Good programming practice
 
 ## Testing and debugging
 
 In a analogy of making a pot of soup, imagine bugs keep falling down from the ceiling when you are making a pot of soup. First, checking soup for bugs is testing. Second, keeping the lid close is practicing defensive programming, lastly cleaning kitchen is eliminating source of bugs, debugging.
 
-**Defensive programming** comes down to defining what I expect to come in, what I' ll deliver and ensuring that I actually do that. It is to write specifications for functions (docs) for example "Here is what I   am expected to be an input and here is what I will deliver if I get things that are of the right form", to modularize programs instead of writing a huge single function, break it up into obvious pieces because later on we want to test functions by small pieces in turn and to check conditions on inputs and outputs(assertions).
+**Defensive programming** comes down to defining what I expect to come in, what I will deliver and ensuring that I actually do that. It is to write specifications for functions (docs) for example "Here is what I   am expected to be an input and here is what I will deliver if I get things that are of the right form", to modularize programs instead of writing a huge single function, break it up into obvious pieces because later on we want to test functions by small pieces in turn and to check conditions on inputs and outputs(assertions).
 
 **testing and validation** is to compare input/output pairs to specifications we have given before for the function. Also, tests need to be built in a way that they cover all of different cases to make sure the program is doing what I want it to dos.
 
@@ -25,55 +25,9 @@ In fact, they all go back and forth (unit testing > regression testing > unit > 
 
 + Testing approaches
   + intuition about natural boundaries
-
   + random testing
-
   + black-box testing: explore all the paths through specifications without looking at the code.
-
   + glass-box testing: explore paths through code (making sure test hits all of possible paths) but sometimes you might miss some paths so you may have to add other approaches
-  ```
-  def union(set1, set2):
-   """
-   set1 and set2 are collections of objects, each of which might be empty.
-   Each set has no duplicates within itself, but there may be objects that
-   are in both sets. Objects are assumed to be of the same type.
-
-   This function returns one set containing all elements from
-   both input sets, but with no duplicates.
-   """
-
-  ```
-
-  A good black box test suite would contain tests for all of the given conditions! Black-box testing tests the functionality of an application, by looking at the paths through its *specifications.* According to the specifications, the possibilities for set1 and set2 are as follows:
-   + set1 is an empty set and set2 is an empty set
-   + set1 is an empty set an set2 is of size greater than or equal to 1
-   + set1 is of size greater than or equal to 1 and set2 is an empty set correct
-   + set1 and set2 are both nonempty sets which do not contain any objects in common
-   + set1 and set2 are both nonempty sets which contain objects in common.
-
-### Exercise 4
-
-```
-def foo(x, a):
-   """
-   x: a positive integer argument
-   a: a positive integer argument
-
-   returns an integer
-   """
-   count = 0
-   while x >= a:
-      count += 1
-      x = x - a
-   return count
-
-```
-Consider the following function definition, Please select the best glass box test suite for the function foo from the following options.
-
-In glass box testing: we try to sample as many paths through the code as we can. In case of loops, we cant to sample three general cases:
-+ not executing the loop at all
-+ executing the loop exactly once
-+ executing the loop multiple times
 
 + Types of bug
   + overt bug has an obvious indication, code crashes or runs forever
@@ -93,19 +47,16 @@ Debugging has a steep learning curve. There are tools to help you such as print 
   + TypeError: trying to convert an inappropriate type (int([1,2])
   + NameError: referencing a non-existent variable
   + TypeError: mixing data types without appropriate coercion ('3'/4)
-+ SyntaxError
+  + SyntaxError: using invalid syntax
 
 let the error messages guide what you are looking for in terms of bugs.
 
 **Logic errors** are harder. *think* before writing new codes and *draw* pictures of code, *explain* to a rubber ducky and walk through the codes. Make sure that you have a backup of current codes and experiment with a new version so that you can always recover it to the previous code.
 
-## Exceptions and Assertion
-
-### Python built-in Exceptions
-### Handling exceptions
+#### Handling exceptions
 By clarifying what to do when expected exception occurs, we can handle exceptions.
 
-### Control the flow
+#### Control the flow
 By ```raise:```, we can control the flow of program.
 
 ```
@@ -113,58 +64,5 @@ try:
 exception:
 else:
 finally:
-
-```
-### Exercise 1
-
-This exercise is to choose a correct type of error in regard to input.
-
-### Exercise 2
-```
-def fancy_divide(numbers,index):
-    try:
-        denom = numbers[index]
-        for i in range(len(numbers)):
-            numbers[i] /= denom
-    except IndexError:
-        print("-1")
-    else:
-        print("1")
-    finally:
-        print("0")
-
-```
-```
-fancy_divide([0, 2, 4], 1) # prints out 1, 0
-fancy_divide([0, 2, 4], 4) # prints out -1, 0
-fancy_divide([0, 2, 4], 0) # prints out 1, 0
-```
-Q4 does not print 0
-```
-def fancy_divide(list_of_numbers, index):
-    try:
-        try:
-            raise Exception("0")
-        finally:
-            denom = list_of_numbers[index]
-            for i in range(len(list_of_numbers)):
-                list_of_numbers[i] /= denom
-    except Exception as ex:
-        print(ex)
-
-```
-Q5 does print 0
-
-```
-def fancy_divide(list_of_numbers, index):
-    try:
-        try:
-            denom = list_of_numbers[index]
-            for i in range(len(list_of_numbers)):
-                list_of_numbers[i] /= denom
-        finally:
-            raise Exception("0")
-    except Exception as ex:
-        print(ex)
 
 ```
